@@ -1,0 +1,114 @@
+.timeline {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  padding: 20px;
+  margin: 0 auto;
+  width: 50%; /* Adjust the width as needed */
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  top: 10px;
+  bottom: 10px;
+  left: 50%;
+  width: 4px;
+  background-color: #333;
+  transform: translateX(-50%);
+  z-index: 1;
+}
+
+.timelineItem {
+  position: relative;
+  width: 100%; /* Full width to accommodate both text and images */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 30px 0;
+}
+
+.timelineContent {
+  background-color: #f3f3f3;
+  border-radius: 8px;
+  text-align: center;
+  padding: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 80%; /* Adjust width for the text blocks */
+  z-index: 2; /* Ensures content is above the center line */
+}
+
+.timelineContent.left {
+  transform: translateX(-70%); /* Adjust placement for left side */
+}
+
+.timelineContent.right {
+  transform: translateX(70%); /* Adjust placement for right side */
+}
+
+.timelineItem::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 15px;
+  height: 15px;
+  background-color: #333;
+  border-radius: 50%;
+  z-index: 3;
+}
+
+.timelineItem::after {
+  content: '';
+  position: absolute;
+  top: calc(50% + 10px);
+  bottom: calc(-50% + 10px);
+  left: 50%;
+  width: 2px;
+  background-color: #333;
+  transform: translateX(-50%);
+  z-index: 1;
+}
+
+.timelineItem:first-child::after {
+  top: 50%; /* Remove top line for the first item */
+}
+
+.timelineItem:last-child::after {
+  bottom: 50%; /* Remove bottom line for the last item */
+}
+
+/* New styling for images */
+.timelineImage {
+  width: 50%; /* Adjust width to accommodate two images */
+  display: flex;
+  justify-content: center;
+  gap: 20px; /* Space between the two images */
+}
+
+.timelineImage img {
+  max-width: 100%; /* Set size for each image, they will take 45% of the available space */
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.timelineImage.ImgLeft{
+  transform: translateX(-80%);
+}
+
+.timelineImage.ImgRight{
+  transform: translateX(80%);
+}
+
+.date {
+  font-weight: bold;
+  font-size: 1.2em;
+  margin-bottom: 5px;
+}
+
+.text {
+  font-size: 1em;
+  color: #333;
+}
